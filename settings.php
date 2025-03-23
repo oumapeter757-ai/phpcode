@@ -56,7 +56,7 @@ echo password_hash('your_password', PASSWORD_DEFAULT);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings</title>
-    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="settings.css"> 
 </head>
 
 <body>

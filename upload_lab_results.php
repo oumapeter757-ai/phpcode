@@ -59,19 +59,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Lab Results</title>
-    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
+    <link rel="stylesheet" href="style.css"> 
 </head>
 
 <body>
     <div class="dashboard-container">
         <h2>Upload Lab Results</h2>
 
-        <!-- Success Message -->
+       
         <?php if (!empty($success_message)) { ?>
             <p class="success-message"><?php echo $success_message; ?></p>
         <?php } ?>
 
-        <!-- Lab Results Upload Form -->
+      
         <form method="POST" class="form-container">
             <h3>Upload Lab Results</h3>
             <label for="patient_id">Select Patient:</label>
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <button type="submit">Upload Result</button>
         </form>
 
-        <!-- Button to Return to Doctor Dashboard -->
+       
         <a href="doctor_dashboard.php" class="return-button">Return to Dashboard</a>
     </div>
 </body>

@@ -1,0 +1,206 @@
+/* Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  /* Ensure content does not overlap the sidebar */
+  .page-container {
+    margin-left: 250px; /* Width of the vertical navbar */
+  }
+  
+  /* Vertical Navigation Sidebar */
+  .vertical-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #34495e; /* Dark blue-gray */
+    padding: 20px;
+    color: #ecf0f1;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .vertical-navbar ul {
+    list-style: none;
+    margin-top: 20px;
+  }
+  
+  .vertical-navbar ul li {
+    margin-bottom: 15px;
+  }
+  
+  .vertical-navbar ul li a {
+    text-decoration: none;
+    color: #bdc3c7;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .vertical-navbar ul li a:hover {
+    background-color: #3d566e;
+    color: #ecf0f1;
+  }
+  
+  /* Admin Header: Top Horizontal Bar */
+  .admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2980b9; /* Blue */
+    color: #fff;
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-session {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Round profile picture */
+    object-fit: cover;
+    margin-right: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .admin-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  .logout-button {
+    background-color: #e74c3c; /* Red */
+    color: #fff;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-button:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Dashboard Title Container */
+  .dashboard-title-container {
+    background-color: #ecf0f1; /* Light gray */
+    padding: 10px 20px;
+    border-bottom: 2px solid #bdc3c7;
+    color: #2c3e50;
+  }
+  
+  .dashboard-title-container h1 {
+    font-size: 1.8rem;
+    font-weight: normal;
+  }
+  
+  /* Main Content Area */
+  .main-content {
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-height: calc(100vh - 150px); /* Adjust based on header heights */
+  }
+  
+  /* Form Container: Edit / Insert Patient Details */
+  .form-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-container label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-container input,
+  .form-container select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-container button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #2980b9;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-container button:hover {
+    background-color: #1f6391;
+  }
+  
+  .form-container .cancel-button {
+    margin-top: 10px;
+    text-decoration: none;
+    color: #2980b9;
+  }
+  
+  /* Patients Table Styling */
+  .patients-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .patients-table th,
+  .patients-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .patients-table th {
+    background-color: #f4f4f4;
+  }
+  
+  .patients-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .patients-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Error and Success Messages */
+  .error {
+    color: #e74c3c;
+    margin: 10px 0;
+  }
+  
+  .success {
+    color: #27ae60;
+    margin: 10px 0;
+  }
+  

@@ -17,7 +17,7 @@ $result = $conn->query($query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Available Doctors</title>
-    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -45,7 +45,7 @@ $result = $conn->query($query);
             <p>No doctors are currently available.</p>
         <?php } ?>
 
-        <!-- Button to Return to Patient Dashboard -->
+      
         <a href="patient_dashboard.php" class="return-button">Return to Dashboard</a>
     </div>
 </body>

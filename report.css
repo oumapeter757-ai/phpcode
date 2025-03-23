@@ -1,0 +1,84 @@
+/* Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+  }
+  
+  /* Page Container */
+  .page-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+  }
+  
+  /* Page Heading */
+  .page-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #2980b9;
+  }
+  
+  /* Reports Summary Section */
+  .reports-summary {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  /* Report Card Styling */
+  .report-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1 1 250px;       /* Flex basis for small cards */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .report-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .report-card h2 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #2980b9;
+  }
+  
+  .report-card p {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  /* Return to Dashboard Link */
+  .return-dashboard {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .dashboard-link {
+    display: inline-block;
+    background-color: #2980b9;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dashboard-link:hover {
+    background-color: #1f6391;
+  }
+  

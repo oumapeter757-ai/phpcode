@@ -1,0 +1,150 @@
+/* Reset & General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  /* Container for Dashboard Content (shifts content right to allow space for the sidebar) */
+  .dashboard-container {
+    margin-left: 250px; /* Width of the fixed sidebar */
+  }
+  
+  /* Top Horizontal Bar - Upper Bar with Session Info & Logout */
+  .upper-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2980b9;
+    color: #fff;
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .upper-bar .session-info {
+    font-size: 1rem;
+  }
+  
+  .upper-bar .logout-button {
+    background-color: #e74c3c;
+    padding: 8px 15px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .upper-bar .logout-button:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Page Heading Bar for the Dashboard Title */
+  .page-heading {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    padding: 10px 20px;
+    border-bottom: 2px solid #bdc3c7;
+  }
+  
+  .page-heading h1 {
+    font-size: 1.6rem;
+  }
+  
+  /* Left Sidebar (Vertical Navigation Bar) */
+  .left-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #34495e; /* Dark blue-gray */
+    padding: 20px;
+    color: #ecf0f1;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .left-sidebar ul {
+    list-style: none;
+    margin-top: 20px;
+  }
+  
+  .left-sidebar ul li {
+    margin-bottom: 15px;
+  }
+  
+  .left-sidebar ul li a {
+    display: block;
+    padding: 10px;
+    color: #bdc3c7;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .left-sidebar ul li a:hover {
+    background-color: #3d566e;
+    color: #ecf0f1;
+  }
+  
+  /* Main Content Area */
+  .main-content {
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 4px;
+    min-height: calc(100vh - 150px); /* Adjust this based on the header heights */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Patient Registration/Details Form */
+  .registration-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin-top: 20px;
+  }
+  
+  .registration-form label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .registration-form input,
+  .registration-form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .registration-form button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #2980b9;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .registration-form button:hover {
+    background-color: #1f6391;
+  }
+  
+  /* Profile Picture Styling (if you add a profile image in the future) */
+  .profile-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  

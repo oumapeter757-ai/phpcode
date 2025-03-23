@@ -27,7 +27,7 @@ $total_patients = $total_patients_result->fetch_assoc()['total_patients'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reports</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="report.css">
 </head>
 
 <body>

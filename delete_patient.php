@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'doctor') {
 include 'db_connection.php';
 
 $id = $_GET['id'];
-$query = "DELETE FROM patients WHERE id = ?";
+$query = "DELETE FROM patients WHERE patient_id = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $id);
 $stmt->execute();

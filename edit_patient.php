@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $gender = $_POST['gender'];
     $contact = $_POST['contact'];
 
-    $query = "UPDATE patients SET name = ?, age = ?, gender = ?, contact = ? WHERE id = ?";
+    $query = "UPDATE patients SET name = ?, age = ?, gender = ?, contact = ? WHERE patient_id = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("sissi", $name, $age, $gender, $contact, $id);
     $stmt->execute();
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 $id = $_GET['id'];
-$query = "SELECT * FROM patients WHERE id = ?";
+$query = "SELECT * FROM patients WHERE patient_id = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $id);
 $stmt->execute();
@@ -38,12 +38,13 @@ $patient = $result->fetch_assoc();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Patient</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <h2>Edit Patient</h2>
     <form method="POST">
-        <input type="hidden" name="id" value="<?php echo $patient['id']; ?>">
+        <input type="hidden" name="id" value="<?php echo $patient['patient_id']; ?>">
         <label>Name:</label>
         <input type="text" name="name" value="<?php echo htmlspecialchars($patient['name']); ?>" required>
         <label>Age:</label>

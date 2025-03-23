@@ -26,7 +26,7 @@ if ($result->num_rows == 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Patient Records</title>
-    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
+    <link rel="stylesheet" href="style.css"> <!-- External CSS -->
 </head>
 
 <body>
@@ -48,14 +48,14 @@ if ($result->num_rows == 0) {
                 if ($result->num_rows > 0) {
                     while ($patient = $result->fetch_assoc()) { ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($patient['id']); ?></td>
+                            <td><?php echo htmlspecialchars($patient['patient_id']); ?></td>
                             <td><?php echo htmlspecialchars($patient['name']); ?></td>
                             <td><?php echo htmlspecialchars($patient['age']); ?></td>
                             <td><?php echo htmlspecialchars($patient['gender']); ?></td>
                             <td><?php echo htmlspecialchars($patient['contact']); ?></td>
                             <td>
-                                <a href="edit_patient.php?id=<?php echo $patient['id']; ?>">Edit</a> |
-                                <a href="delete_patient.php?id=<?php echo $patient['id']; ?>" onclick="return confirm('Are you sure you want to delete this patient?');">Delete</a>
+                                <a href="edit_patient.php?id=<?php echo $patient['patient_id']; ?>">Edit</a> |
+                                <a href="delete_patient.php?id=<?php echo $patient['patient_id']; ?>" onclick="return confirm('Are you sure you want to delete this patient?');">Delete</a>
                             </td>
                         </tr>
                 <?php }

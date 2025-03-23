@@ -27,7 +27,7 @@ $result = $stmt->get_result();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generate Lab Results</title>
-    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
+    <link rel="stylesheet" href="style.css"> <!-- External CSS -->
 </head>
 
 <body>

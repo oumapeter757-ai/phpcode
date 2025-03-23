@@ -9,35 +9,39 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'patient') {
 
 $patient_id = $_SESSION['user_id'];
 $success_message = "";
+$stmt = null; // Initialize $stmt to null
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $feedback_text = $_POST['feedback_text'];
 
     $query = "INSERT INTO feedback (patient_id, feedback_text) VALUES (?, ?)";
     $stmt = $conn->prepare($query);
+    if (!$stmt) {
+        die("Prepare failed: " . $conn->error);
+    }
     $stmt->bind_param("is", $patient_id, $feedback_text);
-    $stmt->execute();
+    if (!$stmt->execute()) {
+        die("Execution failed: " . $stmt->error);
+    }
 
     $success_message = "Thank you for your feedback!";
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Provide Feedback</title>
-    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
+    <link rel="stylesheet" href="style.css"> <!-- External CSS -->
 </head>
-
 <body>
     <div class="dashboard-container">
         <h2>Provide Feedback</h2>
 
         <!-- Success Message -->
         <?php if (!empty($success_message)) { ?>
-            <p class="success-message"><?php echo $success_message; ?></p>
+            <p class="success-message"><?php echo htmlspecialchars($success_message); ?></p>
         <?php } ?>
 
         <!-- Feedback Form -->
@@ -51,10 +55,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <a href="patient_dashboard.php" class="return-button">Return to Dashboard</a>
     </div>
 </body>
-
 </html>
-
 <?php
-$stmt->close();
+if ($stmt) {
+    $stmt->close();
+}
 $conn->close();
 ?>

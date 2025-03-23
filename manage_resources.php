@@ -40,14 +40,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_resource'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Resources</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="resources.css">
 </head>
 
 <body>
     <div class="page-container">
         <h1>Manage Resources</h1>
 
-   
+
         <form action="manage_resources.php" method="POST" class="form-container">
             <h2>Add New Resource</h2>
             <label for="name">Resource Name:</label>
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_resource'])) {
             <button type="submit" name="add_resource" class="add-user-button">Add Resource</button>
         </form>
 
-       
+
         <table class="users-table">
             <thead>
                 <tr>

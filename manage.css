@@ -1,0 +1,147 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+}
+
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.form-container {
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+
+.form-container h2 {
+    color: #34495e;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #48bb78;
+    outline: none;
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.users-table th,
+.users-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.users-table th {
+    background-color: #48bb78;
+    color: white;
+    font-weight: 600;
+}
+
+.users-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.users-table tr:hover {
+    background-color: #f1f5f9;
+}
+
+.add-user-button {
+    background-color: #48bb78;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.add-user-button:hover {
+    background-color: #38a169;
+}
+
+.edit-button,
+.delete-button {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 2px;
+    transition: opacity 0.3s ease;
+}
+
+.edit-button {
+    background-color: #4299e1;
+    color: white;
+}
+
+.delete-button {
+    background-color: #f56565;
+    color: white;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .page-container {
+        padding: 15px;
+    }
+    
+    .users-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .form-container {
+        padding: 15px;
+    }
+    
+    input[type="text"],
+    input[type="number"] {
+        padding: 8px;
+    }
+}

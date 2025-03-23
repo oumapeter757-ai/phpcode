@@ -1,13 +1,13 @@
 <?php
 session_start();
-include 'db_connection.php';
-
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'doctor') {
     echo "Please log in to upload medical reports.";
     exit;
 }
 
-$doctor_id = $_SESSION['user_id'];
+include 'db_connection.php';
+
+$user_id = $_SESSION['user_id'];
 $success_message = "";
 
 // Fetch patients for the dropdown
@@ -20,17 +20,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $report_title = $_POST['report_title'];
     $report_file = $_FILES['report_file'];
 
-    // Handle file upload
+    // Set your target directory
     $target_dir = "uploads/";
-    $target_file = $target_dir . basename($report_file['name']);
-    move_uploaded_file($report_file['tmp_name'], $target_file);
+    // Create the uploads directory if it does not exist
+    if (!is_dir($target_dir)) {
+        if (!mkdir($target_dir, 0755, true)) {
+            die("Failed to create directory: " . $target_dir);
+        }
+    }
 
-    $query = "INSERT INTO medical_reports (patient_id, doctor_id, report_title, report_file) VALUES (?, ?, ?, ?)";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("iiss", $patient_id, $doctor_id, $report_title, $report_file['name']);
-    $stmt->execute();
+    // Generate a unique file name to avoid overwriting existing files
+    $unique_filename = md5(uniqid(rand(), true)) . "_" . basename($report_file['name']);
+    $target_file = $target_dir . $unique_filename;
 
-    $success_message = "Medical report uploaded successfully!";
+    // Attempt to move the uploaded file to the target directory
+    if (move_uploaded_file($report_file['tmp_name'], $target_file)) {
+        $query = "INSERT INTO medical_reports (patient_id, doctor_id, report_title, report_file) VALUES (?, ?, ?, ?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("iiss", $patient_id, $user_id, $report_title, $unique_filename);
+        if ($stmt->execute()) {
+            $success_message = "Medical report uploaded successfully!";
+        } else {
+            echo "Error adding report to database: " . $stmt->error;
+        }
+        $stmt->close();
+    } else {
+        echo "Error uploading file.";
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -40,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Medical Reports</title>
-    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
+    <link rel="stylesheet" href="style.css"> <!-- External CSS -->
 </head>
 
 <body>
@@ -49,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <!-- Success Message -->
         <?php if (!empty($success_message)) { ?>
-            <p class="success-message"><?php echo $success_message; ?></p>
+            <p class="success-message"><?php echo htmlspecialchars($success_message); ?></p>
         <?php } ?>
 
         <!-- Medical Reports Upload Form -->
@@ -77,8 +93,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </body>
 
 </html>
-
 <?php
-$stmt->close();
 $conn->close();
 ?>

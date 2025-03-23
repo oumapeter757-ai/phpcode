@@ -2,13 +2,13 @@
 session_start();
 include 'db_connection.php';
 
-// Ensure the user is logged in as an admin
+
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
     echo "Access denied. Please log in as an admin.";
     exit;
 }
 
-// Get the bill ID from the URL
+
 if (!isset($_GET['id'])) {
     echo "Invalid request.";
     exit;
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Bill</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
